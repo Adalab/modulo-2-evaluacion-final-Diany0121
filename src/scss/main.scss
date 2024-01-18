@@ -1,7 +1,26 @@
-@import 'core/variables';
-@import 'core/reset';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-@import 'layout/page';
-@import 'layout/header';
-@import 'layout/footer';
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/anime_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  size: 20px;
 
+  width: 100%;
+  height: 30vh;
+}
+
+.div1{
+    display: flex;
+    flex-direction: row;
+}
