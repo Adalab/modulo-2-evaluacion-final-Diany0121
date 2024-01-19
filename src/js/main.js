@@ -25,7 +25,6 @@ function getDataApi() {
       renderListSeries(containerSerie, serieList);
       localStorage.setItem("serie", JSON.stringify(containerSerie));
     });
-
 }
 
 
@@ -64,7 +63,7 @@ function renderListSeries(arrayListSerie, allContainerList){
   for (const item of arrayListSerie) {
     html += `<li class="card js-select" id=${item.mal_id}>`;
 
-    html += `<article><img src="${item.images.jpg.small_image_url}" alt="serie anime">
+    html += `<article><img src="${item.images.jpg.image_url}" alt="serie anime">
     <h4>${item.title}</h4></article>`;
 
     html += `</li>`;
