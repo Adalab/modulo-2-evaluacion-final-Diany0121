@@ -12,34 +12,32 @@
   </head>
 
   <body>
-    <main>
-      <header>
-        <div class="header">
-          <h1>Buscador de series de anime</h1>
-          <form>
-            <input type="text" class="search js-search-input" />
-            <button class="js-search-btn">Buscar</button>
-            <button type="reset" class="js-reset-btn">Reset</button>
-          </form>
-        </div>
+
+    <header>
+      <div class="header">
+        <h1>Buscador de series de anime</h1>
+        <form>
+          <input type="text" class=" input search js-search-input" placeholder="Buscar tu serie de anime"/>
+          <button class="btn js-search-btn">Buscar</button>
+          <button type="reset" class="btn js-reset-btn">Reset</button>
+      </form>
       </header>
+
+
+    <main class="main">
+
+      <section class="favorite js-div-favorite">
+        <h2>Lista de favoritos</h2>
+        <ul class="favorite js-ul-list-favorite"></ul>
+      </section>
+
 
       <section class="js-div-list">
         <h2 class="title">Listado de series</h2>
-        <ul class="list js-list">
-          <!--<li>
-            <article>
-              <img src="" alt="serie anime">
-              <h4>Nombre de la serie</h4>
-            </article>
-          </li>-->
-        </ul>
+        <ul class="cards-result list js-ul-list"></ul>
       </section>
 
-      <section class="js-div-favorite">
-        <h2>Lista de favoritos</h2>
-        <ul class="favorite js-list-favorite"></ul>
-      </section>
+      
     </main>
 
     <script src="./js/main.js"></script>
