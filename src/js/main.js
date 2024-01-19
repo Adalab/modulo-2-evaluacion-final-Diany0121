@@ -19,25 +19,19 @@ let containerSerieFavorite = [];
 
 function handleSearchBtn (event){
   event.preventDefault();
-  
-  getDataApi();
-}
+  const inputValue = searchInput.value.toLocaleLowerCase();
 
-
-
-
-searchBtn.addEventListener('click', handleSearchBtn);
-
-function getDataApi() {
-  fetch("https://api.jikan.moe/v4/anime?q=naruto")
+  fetch(`https://api.jikan.moe/v4/anime?q=${inputValue}`)
     .then((response) => response.json())
-    .then((data) => {
-      containerSerie = data.data;
-      console.log(containerSerie);
+    .then((dataApi) => {
+      containerSerie = dataApi.data;
       renderListSeries(containerSerie, serieList);
       localStorage.setItem("serie", JSON.stringify(containerSerie));
     });
-}
+
+};
+
+searchBtn.addEventListener('click', handleSearchBtn);
 
 
 // función manejadora del evento click para añadir a favoritos
@@ -58,6 +52,8 @@ function handleClickCompleteSerie(event) {
         console.log(containerSerieFavorite);
         renderListSeries(containerSerieFavorite, favoriteList);
     }
+
+
 };
 
 // función para escuchar eventos sobre todas las series
@@ -84,16 +80,14 @@ function renderListSeries(arrayListSerie, allContainerList){
   eventSerie();
 }
 
-//getDataApi(); // ejecutar al hacer click de buscar
 
 function getDataLocalStorage() {
   const dataSerie = JSON.parse(localStorage.getItem("serie"));
-
-  // if (dataSerie !== null) {
-  //   containerSerie = dataSerie;
-  //   renderListSeries(dataSerie, serieList);
-  // } else {
-  //   handleSearchBtn();
-  // }
 }
 getDataLocalStorage();
+
+
+function renderContainerSerieFavorite(event){
+}
+
+renderContainerSerieFavorite();
