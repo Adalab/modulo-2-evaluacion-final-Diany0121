@@ -16,6 +16,18 @@ let containerSerie = [];
 
 let containerSerieFavorite = [];
 
+
+function handleSearchBtn (event){
+  event.preventDefault();
+  
+  getDataApi();
+}
+
+
+
+
+searchBtn.addEventListener('click', handleSearchBtn);
+
 function getDataApi() {
   fetch("https://api.jikan.moe/v4/anime?q=naruto")
     .then((response) => response.json())
@@ -34,7 +46,6 @@ function handleClickCompleteSerie(event) {
     const idSerieList = event.currentTarget.id;
     //console.log(idSerieList);
     
-
     const findSerie = containerSerie.find((anime) => parseInt(idSerieList) === anime.mal_id);
     //console.log(findSerie)
     //console.log(containerSerie);
@@ -73,17 +84,16 @@ function renderListSeries(arrayListSerie, allContainerList){
   eventSerie();
 }
 
-getDataApi(); // ejecutar al hacer click de buscar
+//getDataApi(); // ejecutar al hacer click de buscar
 
 function getDataLocalStorage() {
   const dataSerie = JSON.parse(localStorage.getItem("serie"));
 
-  if (dataSerie !== null) {
-    containerSerie = dataSerie;
-    renderListSeries(dataSerie, serieList);
-  } else {
-    getDataApi();
-  }
+  // if (dataSerie !== null) {
+  //   containerSerie = dataSerie;
+  //   renderListSeries(dataSerie, serieList);
+  // } else {
+  //   handleSearchBtn();
+  // }
 }
-
 getDataLocalStorage();
