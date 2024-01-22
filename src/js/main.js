@@ -53,8 +53,16 @@ function handleClickCompleteSerie(event) {
         renderListSeries(containerSerieFavorite, favoriteList);
     }
 
-
 };
+
+// function deleteSerie (idSerieList) {
+//   const indexSerieInFav = containerSerieFavorite.findIndex((anime) => anime.mal_id === parseInt(idSerieList));
+//   containerSerieFavorite.splice(indexSerieInFav, 1);
+//   localStorage.setItem('serie', JSON.stringify(containerSerieFavorite));
+//   renderListSeries(containerSerieFavorite, favoriteList);
+
+// }
+
 
 // función para escuchar eventos sobre todas las series
 function eventSerie() {
@@ -64,6 +72,8 @@ function eventSerie() {
     completeSerie.addEventListener('click', handleClickCompleteSerie);
   }
 }
+
+
 
 function renderListSeries(arrayListSerie, allContainerList){
   let html = "";
@@ -78,6 +88,8 @@ function renderListSeries(arrayListSerie, allContainerList){
   allContainerList.innerHTML = html;
 
   eventSerie();
+
+  
 }
 
 
@@ -85,9 +97,3 @@ function getDataLocalStorage() {
   const dataSerie = JSON.parse(localStorage.getItem("serie"));
 }
 getDataLocalStorage();
-
-
-function renderContainerSerieFavorite(event){
-}
-
-renderContainerSerieFavorite();
