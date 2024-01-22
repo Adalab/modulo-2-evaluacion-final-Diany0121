@@ -55,14 +55,6 @@ function handleClickCompleteSerie(event) {
 
 };
 
-// function deleteSerie (idSerieList) {
-//   const indexSerieInFav = containerSerieFavorite.findIndex((anime) => anime.mal_id === parseInt(idSerieList));
-//   containerSerieFavorite.splice(indexSerieInFav, 1);
-//   localStorage.setItem('serie', JSON.stringify(containerSerieFavorite));
-//   renderListSeries(containerSerieFavorite, favoriteList);
-
-// }
-
 
 // función para escuchar eventos sobre todas las series
 function eventSerie() {
@@ -72,8 +64,6 @@ function eventSerie() {
     completeSerie.addEventListener('click', handleClickCompleteSerie);
   }
 }
-
-
 
 function renderListSeries(arrayListSerie, allContainerList){
   let html = "";
@@ -92,8 +82,27 @@ function renderListSeries(arrayListSerie, allContainerList){
   
 }
 
-
 function getDataLocalStorage() {
   const dataSerie = JSON.parse(localStorage.getItem("serie"));
 }
 getDataLocalStorage();
+
+
+// para eliminar la lista de busqueda, el input y los favoritos
+function deleteFavorite(){
+  containerSerieFavorite = [];
+  localStorage.setItem('serie', JSON.stringify(containerSerie));
+  renderListSeries(containerSerieFavorite, favoriteList);
+
+}
+
+function handleDeleteAll(event) {
+  event.preventDefault();
+  deleteFavorite();
+  containerSerie = [];
+  containerSerieFavorite = [];
+  searchInput.value = '';
+  renderListSeries(containerSerie, serieList);
+
+}
+resetBtn.addEventListener('click', handleDeleteAll);
