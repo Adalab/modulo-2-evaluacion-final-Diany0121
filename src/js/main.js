@@ -30,7 +30,6 @@ function handleSearchBtn (event){
     });
 
 };
-
 searchBtn.addEventListener('click', handleSearchBtn);
 
 
@@ -78,8 +77,6 @@ function renderListSeries(arrayListSerie, allContainerList){
   allContainerList.innerHTML = html;
 
   eventSerie();
-
-  
 }
 
 function getDataLocalStorage() {
